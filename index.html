@@ -4,107 +4,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Kuma Kids — Educación financiera para niños</title>
-
-  <!-- Tipografía y Tailwind CDN (rápido para prototipo) -->
+  <meta name="description" content="Kuma Kids — App educativa que enseña a niños (6-12) hábitos financieros con la capibara guía." />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <meta name="description" content="Kuma Kids - App educativa que enseña a niños (6-12 años) hábitos financieros con control parental seguro." />
   <style>
     :root{
-      --primary:#ff6b00; /* naranja principal */
-      --primary-600:#ff8f42;
-      --muted:#f7f7f7;
+      --orange:#FF7A00;
+      --orange-soft:#FFC48A;
+      --cream:#FFF9F3;
+      --capibara:#A97A58;
+      --green:#4BBF73;
+      --ink:#2B2B2B;
     }
-    html,body{font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;}
-    /* pequeño límite de ancho para estilo 'app' en pantallas grandes */
-    .app-frame { max-width: 980px; margin: 0 auto; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(15,23,42,0.08); background: white; }
-    /* accesibilidad focus */
-    :focus { outline: 3px solid rgba(255,107,0,0.18); outline-offset: 2px; }
-  </style>
-</head>
-<body class="bg-[var(--muted)] text-slate-800">
-
-  <main class="p-6">
-    <div class="app-frame">
-      <!-- HEADER -->
-      <header class="flex items-center justify-between px-6 py-4 border-b">
-        <div class="flex items-center gap-3">
-          <div class="w-12 h-12 rounded-full bg-[var(--primary)] flex items-center justify-center text-white font-bold">KK</div>
-          <div>
-            <h1 class="text-xl font-bold text-[var(--primary)]">Kuma Kids</h1>
-            <p class="text-xs text-slate-500">Educar hoy para proteger mañana</p>
-          </div>
-        </div>
-
-        <nav class="hidden md:flex items-center gap-4 text-sm">
-          <a href="#como" class="hover:text-[var(--primary)]">Cómo funciona</a>
-          <a href="#producto" class="hover:text-[var(--primary)]">Producto</a>
-          <a href="#impacto" class="hover:text-[var(--primary)]">Impacto</a>
-          <a href="#faq" class="hover:text-[var(--primary)]">FAQ</a>
-          <button onclick="openSignup()" class="ml-2 px-4 py-2 bg-[var(--primary)] text-white rounded-md shadow hover:bg-[var(--primary-600)]">Únete</button>
-        </nav>
-
-        <!-- Mobile menu button -->
-        <button id="btnMobile" class="md:hidden p-2 rounded-md text-slate-600" aria-label="Abrir menú" onclick="toggleMobile()">
-          ☰
-        </button>
-      </header>
-
-      <!-- Mobile nav -->
-      <div id="mobileNav" class="md:hidden hidden border-b px-4 py-3 space-y-2">
-        <a href="#como" class="block">Cómo funciona</a>
-        <a href="#producto" class="block">Producto</a>
-        <a href="#impacto" class="block">Impacto</a>
-        <a href="#faq" class="block">FAQ</a>
-        <button onclick="openSignup()" class="w-full mt-2 px-4 py-2 bg-[var(--primary)] text-white rounded-md">Únete</button>
-      </div>
-
-      <!-- HERO -->
-      <section class="grid md:grid-cols-2 gap-6 px-6 py-10 items-center">
-        <div>
-          <h2 class="text-3xl md:text-4xl font-extrabold text-[var(--primary)] leading-tight">Aprender a ahorrar desde pequeños</h2>
-          <p class="mt-4 text-slate-600">Kuma Kids enseña a niños de 6 a 12 años hábitos financieros mediante lecciones breves, minijuegos y un guardadito real controlado por los padres. Seguro, pedagógico y divertido.</p>
-
-          <div class="mt-6 flex flex-wrap gap-3">
-            <button onclick="openSignup()" class="px-5 py-3 bg-[var(--primary)] text-white rounded-md shadow hover:bg-[var(--primary-600)] font-semibold">Quiero unirme</button>
-            <a href="#producto" class="px-5 py-3 border border-slate-200 rounded-md text-slate-700">Ver el producto</a>
-          </div>
-
-          <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <div class="bg-white p-3 rounded-lg shadow-sm text-center">
-              <strong class="block">Ahorro real</strong>
-              <span class="text-xs text-slate-500">Control parental</span>
-            </div>
-            <div class="bg-white p-3 rounded-lg shadow-sm text-center">
-              <strong class="block">Micro-lecciones</strong>
-              <span class="text-xs text-slate-500">2 min</span>
-            </div>
-            <div class="bg-white p-3 rounded-lg shadow-sm text-center">
-              <strong class="block">Misiones</strong>
-              <span class="text-xs text-slate-500">Vida diaria</span>
-            </div>
-            <div class="bg-white p-3 rounded-lg shadow-sm text-center">
-              <strong class="block">Simulador</strong>
-              <span class="text-xs text-slate-500">Impacto real</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Mockup / Card -->
-        <aside class="flex justify-center">
-          <div class="w-72 sm:w-80 bg-gradient-to-br from-white to-[var(--muted)] rounded-xl p-4 shadow-lg">
-            <h3 class="font-semibold text-lg">Tablero de tu pequeño</h3>
-            <p class="text-xs text-slate-500 mt-1">Progreso del guardadito</p>
-
-            <div class="mt-4">
-              <div class="w-full bg-slate-200 rounded-full h-3 overflow-hidden">
-                <div id="progressBar" class="bg-[var(--primary)] h-3 rounded-full" style="width:38%"></div>
-              </div>
-              <div class="mt-2 flex justify-between text-xs text-slate-500">
-                <span id="progressText">38% de la meta</span>
-                <span id="progressAmt">S/ 190 / S/500</span>
-              </div>
-            </div>
-
-            <div class
+    html,body{font-family:'Poppins',sans-serif;background:linear
