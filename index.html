@@ -1,344 +1,169 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Kuma Kids — Educación financiera para niños</title>
-  <meta name="description" content="Kuma Kids — App educativa que enseña a niños (6-12) hábitos financieros con la capibara guía." />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kuma Kids</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    :root{
-      --orange:#FF7A00;
-      --orange-soft:#FFC48A;
-      --cream:#FFF9F3;
-      --capibara:#A97A58;
-      --green:#4BBF73;
-      --ink:#2B2B2B;
-    }
-    html,body{font-family:'Poppins',sans-serif;background:linear-gradient(180deg, #fff 0%, #fff9f3 100%); color:var(--ink);}
-    .app-wrap{max-width:1150px;margin:28px auto;border-radius:18px;overflow:hidden;box-shadow:0 18px 50px rgba(43,43,43,0.08);background:white}
-    .cta-btn{background:var(--orange);color:white;padding:.7rem 1rem;border-radius:12px;font-weight:600;box-shadow:0 8px 18px rgba(255,122,0,0.18)}
-    .cta-ghost{border:1px solid rgba(43,43,43,0.08);padding:.6rem .9rem;border-radius:12px}
-    /* capibara svg sizing */
-    .capibara-hero{width:220px;max-width:36vw}
-    /* floating icon animation */
-    .float { animation: floaty 5s ease-in-out infinite; }
-    @keyframes floaty { 0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)} }
-    /* phone mockup */
-    .phone { width:220px;height:460px;border-radius:28px;background:linear-gradient(180deg,#fff,#fff9f3);box-shadow:0 15px 40px rgba(0,0,0,0.08);border:6px solid #f6f6f6;display:flex;flex-direction:column;overflow:hidden }
-    .phone .screen{flex:1;padding:16px;display:flex;flex-direction:column;gap:8px}
-    .badge {background:var(--green);color:white;padding:4px 8px;border-radius:999px;font-size:12px}
-    /* responsive layout tweaks */
-    @media (max-width:900px){
-      .hero-grid{grid-template-columns:1fr;gap:18px}
-      .capibara-hero{width:220px;margin:auto;display:block}
-      .phone {width:180px;height:380px}
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #FFF9F3;
     }
   </style>
 </head>
-<body>
+<body class="text-slate-800">
 
-  <main class="app-wrap">
-    <!-- HEADER -->
-    <header class="flex items-center justify-between px-8 py-5 border-b">
-      <div class="flex items-center gap-3">
-        <div style="width:54px;height:54px;border-radius:12px;background:linear-gradient(90deg,var(--orange),var(--orange-soft));display:flex;align-items:center;justify-content:center;color:white;font-weight:700">KK</div>
-        <div>
-          <div style="font-weight:700;color:var(--orange)">Kuma Kids</div>
-          <div style="font-size:12px;color:#666">Mini-finanzas para niños • Capibara guía</div>
-        </div>
-      </div>
-
-      <nav class="hidden md:flex items-center gap-4 text-sm">
-        <a href="#como" class="text-slate-600 hover:text-[var(--orange)]">Cómo funciona</a>
-        <a href="#producto" class="text-slate-600 hover:text-[var(--orange)]">Producto</a>
-        <a href="#impacto" class="text-slate-600 hover:text-[var(--orange)]">Impacto</a>
-        <button onclick="openSignup()" class="cta-btn">Únete al piloto</button>
-      </nav>
-
-      <button id="hambtn" class="md:hidden p-2" onclick="document.getElementById('mobs').classList.toggle('hidden')">☰</button>
-    </header>
-
-    <!-- Mobile nav -->
-    <div id="mobs" class="hidden md:hidden px-6 py-3 border-b bg-[var(--cream)]">
-      <div class="flex flex-col gap-2">
-        <a href="#como">Cómo funciona</a>
-        <a href="#producto">Producto</a>
-        <a href="#impacto">Impacto</a>
-        <button onclick="openSignup()" class="mt-2 cta-btn">Únete al piloto</button>
-      </div>
+<!-- NAVBAR -->
+<nav class="w-full flex items-center justify-between px-6 py-4 bg-white shadow-md fixed top-0 z-50">
+  <div class="flex items-center gap-2">
+    <!-- Capibara mini -->
+    <div class="w-10 h-10">
+      <svg width="40" height="40" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="150" cy="160" rx="110" ry="125" fill="#C48A5A"/>
+        <ellipse cx="150" cy="185" rx="75" ry="85" fill="#D9A77A"/>
+        <ellipse cx="105" cy="65" rx="22" ry="18" fill="#A06B47"/>
+        <ellipse cx="195" cy="65" rx="22" ry="18" fill="#A06B47"/>
+        <ellipse cx="150" cy="145" rx="55" ry="42" fill="#B57F52"/>
+        <ellipse cx="150" cy="150" rx="12" ry="8" fill="#4A3327"/>
+        <circle cx="115" cy="130" r="10" fill="#2B2B2B"/>
+        <circle cx="185" cy="130" r="10" fill="#2B2B2B"/>
+        <path d="M135 165 Q150 180 165 165" stroke="#4A3327" stroke-width="6" stroke-linecap="round"/>
+        <ellipse cx="110" cy="250" rx="22" ry="12" fill="#A06B47"/>
+        <ellipse cx="190" cy="250" rx="22" ry="12" fill="#A06B47"/>
+      </svg>
     </div>
+    <h1 class="font-semibold text-xl text-orange-600">Kuma Kids</h1>
+  </div>
+  <button class="bg-orange-500 text-white px-4 py-2 rounded-xl text-sm">Unirse</button>
+</nav>
 
-    <!-- HERO (left: capibara + floating icons; right: phone mockup) -->
-    <section class="px-8 py-10">
-      <div class="grid hero-grid" style="display:grid;grid-template-columns:1fr 420px;align-items:center;gap:28px">
-        <!-- LEFT: capibara + messaging -->
-        <div>
-          <div style="display:flex;align-items:flex-start;gap:18px">
-            <!-- capibara SVG (estilo 3, expresiva) -->
-            <div class="capibara-hero float" aria-hidden="true">
-              <!-- simple expressive capibara svg -->
-              <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Capibara mascot">
-                <defs>
-                  <linearGradient id="g1" x1="0" x2="1">
-                    <stop offset="0" stop-color="#C79A78"/>
-                    <stop offset="1" stop-color="#A97A58"/>
-                  </linearGradient>
-                </defs>
-                <g transform="translate(0,6)" fill="none" fill-rule="evenodd">
-                  <ellipse cx="100" cy="110" rx="72" ry="36" fill="url(#g1)"/>
-                  <path d="M35 95c0-24 14-48 35-58 12-6 28-6 40 0 22 10 35 34 35 58" fill="url(#g1)"/>
-                  <ellipse cx="80" cy="88" rx="20" ry="12" fill="#fff" />
-                  <ellipse cx="120" cy="88" rx="20" ry="12" fill="#fff" />
-                  <circle cx="75" cy="88" r="5" fill="#2b2b2b"/>
-                  <circle cx="125" cy="88" r="5" fill="#2b2b2b"/>
-                  <path d="M78 104c6 0 11 4 22 4s16-4 22-4" stroke="#7b553f" stroke-width="3" stroke-linecap="round" fill="none"/>
-                  <path d="M64 64c6-6 30-14 60 0" stroke="#7b553f" stroke-width="3" stroke-linecap="round" fill="none"/>
-                  <circle cx="40" cy="70" r="6" fill="#7b553f" />
-                  <circle cx="162" cy="70" r="6" fill="#7b553f" />
-                  <!-- little details: coin and heart -->
-                  <g transform="translate(10,6)">
-                    <circle cx="8" cy="8" r="8" fill="#FFD166"/>
-                    <text x="6" y="13" font-size="9" fill="#7b553f" font-weight="700">$</text>
-                  </g>
-                  <g transform="translate(160,6)">
-                    <circle cx="8" cy="8" r="8" fill="#FF7A00"/>
-                    <text x="4" y="13" font-size="9" fill="#fff" font-weight="700">★</text>
-                  </g>
-                </g>
-              </svg>
-            </div>
-
-            <div style="flex:1">
-              <h1 style="font-size:36px;line-height:1.02;color:var(--orange);margin:0;font-weight:700">Mini-finanzas para niños, con la capibara guía</h1>
-              <p style="margin-top:12px;color:#556">Kuma Kids enseña a los niños a ahorrar, diferenciar deseos de necesidades y planificar metas mediante lecciones breves, misiones en familia y un guardadito real controlado por los padres.</p>
-
-              <div style="display:flex;gap:12px;margin-top:18px;flex-wrap:wrap">
-                <button class="cta-btn" onclick="openSignup()">Únete al piloto</button>
-                <button class="cta-ghost" onclick="document.getElementById('como').scrollIntoView({behavior:'smooth'})">Cómo funciona</button>
-              </div>
-
-              <!-- floating small icons (coins, star, heart) -->
-              <div style="display:flex;gap:8px;margin-top:16px;align-items:center">
-                <div class="p-2 bg-white rounded-lg shadow-sm float"><svg width="28" height="28" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#FFD166"/><text x="8" y="17" font-size="12" fill="#7b553f" font-weight="700">$</text></svg></div>
-                <div class="p-2 bg-white rounded-lg shadow-sm float"><svg width="28" height="28" viewBox="0 0 24 24"><rect rx="6" width="24" height="24" fill="#FFEED9"/><text x="6" y="16" font-size="10" fill="#FF7A00">Mis</text></svg></div>
-                <div class="p-2 bg-white rounded-lg shadow-sm float"><svg width="28" height="28" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#4BBF73"/><text x="6" y="16" font-size="10" fill="#fff">OK</text></svg></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- trust badges -->
-          <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">
-            <div style="background:#F7F7F7;padding:8px 12px;border-radius:12px;font-size:13px">Piloto escolar</div>
-            <div style="background:#F7F7F7;padding:8px 12px;border-radius:12px;font-size:13px">Contenido validado</div>
-            <div style="background:#F7F7F7;padding:8px 12px;border-radius:12px;font-size:13px">Protección parental</div>
-          </div>
-        </div>
-
-        <!-- RIGHT: phone mockup + floating illustrations (style 4) -->
-        <div style="display:flex;justify-content:center;align-items:center;flex-direction:column;gap:16px">
-          <!-- mockup phone -->
-          <div class="phone" role="img" aria-label="Mockup de la app">
-            <div style="height:10px"></div>
-            <div class="screen">
-              <div style="display:flex;justify-content:space-between;align-items:center">
-                <div class="badge">Nuevo</div>
-                <div style="font-weight:700">Kuma Kids</div>
-              </div>
-
-              <div style="display:flex;flex-direction:column;gap:6px;margin-top:6px">
-                <div style="background:linear-gradient(90deg,#fff,#fffef0);padding:8px;border-radius:12px;display:flex;align-items:center;gap:8px">
-                  <div style="width:46px;height:46px;border-radius:10px;background:var(--orange);display:flex;align-items:center;justify-content:center;color:white;font-weight:700">KK</div>
-                  <div style="flex:1">
-                    <div style="font-weight:700">Guardadito</div>
-                    <div style="font-size:12px;color:#777">S/ 190 • Meta S/500</div>
-                  </div>
-                </div>
-
-                <div style="display:flex;gap:8px">
-                  <div style="flex:1;background:#F7F7F7;padding:8px;border-radius:10px;text-align:center">Misiones</div>
-                  <div style="flex:1;background:#F7F7F7;padding:8px;border-radius:10px;text-align:center">Lecciones</div>
-                </div>
-
-                <div style="margin-top:6px;background:white;padding:8px;border-radius:12px;border:1px dashed #eee;text-align:center">
-                  <div style="font-size:12px;color:#999">Próxima misión</div>
-                  <div style="font-weight:700;margin-top:4px">Ahorrar S/2 en la lonchera</div>
-                </div>
-              </div>
-
-              <div style="height:10px"></div>
-            </div>
-            <div style="height:8px;background:transparent"></div>
-          </div>
-
-          <!-- floating illustration row style 4 -->
-          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center">
-            <div style="background:linear-gradient(90deg,#fff,#fff6ee);padding:10px;border-radius:12px;box-shadow:0 8px 18px rgba(0,0,0,0.06);">
-              <svg width="64" height="64" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#FFD166"/><text x="24" y="38" font-size="20" fill="#7b553f" font-weight="700">$</text></svg>
-            </div>
-            <div style="background:linear-gradient(90deg,#fff,#fff6ee);padding:10px;border-radius:12px;box-shadow:0 8px 18px rgba(0,0,0,0.06);">
-              <svg width="64" height="64" viewBox="0 0 64 64"><rect width="44" height="44" x="10" y="10" rx="8" fill="#FF7A00"/><text x="24" y="38" font-size="18" fill="#fff">Mis</text></svg>
-            </div>
-            <div style="background:linear-gradient(90deg,#fff,#fff6ee);padding:10px;border-radius:12px;box-shadow:0 8px 18px rgba(0,0,0,0.06);">
-              <svg width="64" height="64" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#4BBF73"/><text x="22" y="38" font-size="20" fill="#fff">OK</text></svg>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Cómo funciona -->
-    <section id="como" class="px-8 py-10 border-t">
-      <div style="max-width:980px;margin:0 auto">
-        <h3 style="font-size:22px;font-weight:700">Cómo funciona</h3>
-        <p style="color:#556;margin-top:8px">Kuma Kids opera con dos perfiles: el niño y el padre. El niño aprende con micro-lecciones, minijuegos y misiones que se conectan con la vida diaria. El padre administra el guardadito, autoriza compras y monitorea el progreso educativo.</p>
-
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:18px">
-          <div style="background:linear-gradient(90deg,#fff,#fffef0);padding:14px;border-radius:12px;box-shadow:0 8px 18px rgba(0,0,0,0.04)">
-            <h4 style="font-weight:700">Diagnóstico inicial</h4>
-            <p style="color:#666;font-size:14px;margin-top:8px">Un test lúdico calibrará la edad y nivel para adaptar contenidos.</p>
-          </div>
-          <div style="background:linear-gradient(90deg,#fff,#fffef0);padding:14px;border-radius:12px;box-shadow:0 8px 18px rgba(0,0,0,0.04)">
-            <h4 style="font-weight:700">Guardadito seguro</h4>
-            <p style="color:#666;font-size:14px;margin-top:8px">El dinero queda en la cuenta del padre; el niño ve progreso y usa códigos QR o tarjeta virtual limitada con autorización.</p>
-          </div>
-          <div style="background:linear-gradient(90deg,#fff,#fffef0);padding:14px;border-radius:12px;box-shadow:0 8px 18px rgba(0,0,0,0.04)">
-            <h4 style="font-weight:700">Misiones familiares</h4>
-            <p style="color:#666;font-size:14px;margin-top:8px">Tareas reales que generan ahorro o puntos educativos cuando son aprobadas por los padres.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Producto -->
-    <section id="producto" class="px-8 py-10 border-t" style="background:linear-gradient(180deg,#fff,#fffaf5)">
-      <div style="max-width:980px;margin:0 auto">
-        <h3 style="font-size:22px;font-weight:700">El producto</h3>
-        <p style="color:#556;margin-top:8px">Kuma Kids es una app que combina contenido curriculum, herramientas parentales y un guardadito práctico. Está diseñada para ser usable desde el primer minuto y escalable a colegios.</p>
-
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:18px">
-          <div style="padding:12px;background:white;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.04)">
-            <h4 style="font-weight:700">Micro-lecciones</h4>
-            <p style="color:#666;margin-top:8px">Videos y cuentos de 2 minutos con actividades interactivas.</p>
-          </div>
-          <div style="padding:12px;background:white;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.04)">
-            <h4 style="font-weight:700">Minijuegos pedagógicos</h4>
-            <p style="color:#666;margin-top:8px">Actividades que validan comprensión previa a una recompensa.</p>
-          </div>
-          <div style="padding:12px;background:white;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.04)">
-            <h4 style="font-weight:700">Panel parental</h4>
-            <p style="color:#666;margin-top:8px">Control, reportes y creación de misiones con autorización instantánea.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Impacto -->
-    <section id="impacto" class="px-8 py-10 border-t">
-      <div style="max-width:980px;margin:0 auto">
-        <h3 style="font-size:22px;font-weight:700">Impacto y KPIs</h3>
-        <p style="color:#556;margin-top:8px">Mediremos el aprendizaje y el cambio de conducta: metas creadas, misiones completadas, guardaditos activos y retención.</p>
-
-        <div style="display:flex;gap:12px;margin-top:14px;flex-wrap:wrap">
-          <div style="flex:1;min-width:160px;background:white;padding:12px;border-radius:12px;box-shadow:0 8px 18px rgba(0,0,0,0.04);text-align:center">
-            <div style="font-weight:700;font-size:20px;color:var(--orange)">85%</div>
-            <div style="font-size:13px;color:#666;margin-top:6px">Finalizan lecciones (objetivo)</div>
-          </div>
-          <div style="flex:1;min-width:160px;background:white;padding:12px;border-radius:12px;box-shadow:0 8px 18px rgba(0,0,0,0.04);text-align:center">
-            <div style="font-weight:700;font-size:20px;color:var(--orange)">70%</div>
-            <div style="font-size:13px;color:#666;margin-top:6px">Guardadito activo a 6 meses</div>
-          </div>
-          <div style="flex:1;min-width:160px;background:white;padding:12px;border-radius:12px;box-shadow:0 8px 18px rgba(0,0,0,0.04);text-align:center">
-            <div style="font-weight:700;font-size:20px;color:var(--orange)">NPS 62</div>
-            <div style="font-size:13px;color:#666;margin-top:6px">Satisfacción parental (meta)</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ + Footer -->
-    <section id="faq" class="px-8 py-10 border-t" style="background:white">
-      <div style="max-width:980px;margin:0 auto">
-        <h3 style="font-size:22px;font-weight:700">Preguntas frecuentes</h3>
-        <div style="margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:12px">
-          <details style="background:#fff9f3;padding:12px;border-radius:10px">
-            <summary style="font-weight:700">¿Kuma Kids maneja dinero del niño?</summary>
-            <p style="color:#666;margin-top:8px">No. El dinero real permanece en la cuenta del padre. La app gestiona un guardadito controlado que el padre recarga y autoriza.</p>
-          </details>
-
-          <details style="background:#fff9f3;padding:12px;border-radius:10px">
-            <summary style="font-weight:700">¿Qué edad es ideal?</summary>
-            <p style="color:#666;margin-top:8px">La app está pensada para niños entre 6 y 12 años.</p>
-          </details>
-
-          <details style="background:#fff9f3;padding:12px;border-radius:10px">
-            <summary style="font-weight:700">¿Es segura?</summary>
-            <p style="color:#666;margin-top:8px">Sí. Todas las operaciones requieren autorización parental y cumplimos buenas prácticas de privacidad infantil.</p>
-          </details>
-
-          <details style="background:#fff9f3;padding:12px;border-radius:10px">
-            <summary style="font-weight:700">¿Cómo se puede acceder al piloto?</summary>
-            <p style="color:#666;margin-top:8px">Regístrate en el formulario del pie de página. Priorizamos colegios y grupos piloto.</p>
-          </details>
-        </div>
-
-        <!-- signup at bottom -->
-        <div style="margin-top:18px;background:linear-gradient(90deg,#fff,#fffef0);padding:14px;border-radius:12px;display:flex;gap:12px;align-items:center;flex-wrap:wrap">
-          <div style="flex:1">
-            <h4 style="font-weight:700;margin:0">Únete al piloto (100 familias)</h4>
-            <div style="color:#666;font-size:13px;margin-top:6px">3 talleres para padres, acceso a la app por 3 meses y evaluación de impacto.</div>
-          </div>
-          <div>
-            <button onclick="openSignup()" class="cta-btn">Solicitar acceso</button>
-          </div>
-        </div>
-
-        <footer style="margin-top:18px;padding-top:12px;border-top:1px dashed #eee;color:#777;font-size:13px">
-          © <span id="yr"></span> Kuma Kids • Política de privacidad • Términos
-        </footer>
-      </div>
-    </section>
-  </main>
-
-  <!-- SIGNUP MODAL -->
-  <div id="signupModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40 p-4">
-    <div style="width:100%;max-width:540px;background:white;padding:20px;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.12)">
-      <h3 style="font-weight:700;color:var(--orange);margin:0">Solicitar acceso al piloto</h3>
-      <p style="color:#666;margin-top:8px">Deja tus datos y te contactamos para la selección de familias.</p>
-
-      <form id="formSign" style="margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px" onsubmit="submitForm(event)">
-        <input id="pname" required placeholder="Nombre del padre/madre" class="p-3 border rounded" />
-        <input id="pemail" type="email" required placeholder="Correo" class="p-3 border rounded" />
-        <input id="cname" placeholder="Nombre del niño" class="p-3 border rounded" />
-        <input id="cage" type="number" placeholder="Edad (6-12)" min="6" max="12" class="p-3 border rounded" />
-        <textarea id="note" placeholder="Mensaje (opcional)" class="p-3 border rounded" style="grid-column:1 / -1"></textarea>
-        <div style="grid-column:1 / -1;display:flex;gap:8px;justify-content:flex-end">
-          <button type="button" onclick="closeSignup()" class="cta-ghost">Cancelar</button>
-          <button type="submit" class="cta-btn">Enviar solicitud</button>
-        </div>
-      </form>
-      <div id="sentMsg" style="display:none;margin-top:8px;color:green">¡Gracias! Te contactaremos pronto.</div>
-    </div>
+<!-- HERO -->
+<section class="pt-28 px-6 pb-12 flex flex-col lg:flex-row items-center gap-10">
+  <div class="lg:w-1/2">
+    <h2 class="text-4xl font-bold text-orange-600 mb-4">Aprende a ahorrar jugando</h2>
+    <p class="text-slate-700 text-lg mb-6">
+      La primera app financiera diseñada para niños del Perú, guiada por una capibara que enseña ahorro,
+      metas y responsabilidad.
+    </p>
+    <button class="bg-orange-600 text-white px-6 py-3 rounded-2xl text-lg font-semibold">
+      Comenzar
+    </button>
   </div>
 
-  <script>
-    document.getElementById('yr').innerText = new Date().getFullYear();
+  <div class="lg:w-1/2 flex justify-center">
+    <!-- Capibara grande -->
+    <div class="w-72 h-72">
+      <svg width="260" height="260" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="150" cy="160" rx="110" ry="125" fill="#C48A5A"/>
+        <ellipse cx="150" cy="185" rx="75" ry="85" fill="#D9A77A"/>
+        <ellipse cx="105" cy="65" rx="22" ry="18" fill="#A06B47"/>
+        <ellipse cx="195" cy="65" rx="22" ry="18" fill="#A06B47"/>
+        <ellipse cx="150" cy="145" rx="55" ry="42" fill="#B57F52"/>
+        <ellipse cx="150" cy="150" rx="12" ry="8" fill="#4A3327"/>
+        <circle cx="115" cy="130" r="10" fill="#2B2B2B"/>
+        <circle cx="185" cy="130" r="10" fill="#2B2B2B"/>
+        <path d="M135 165 Q150 180 165 165" stroke="#4A3327" stroke-width="6" stroke-linecap="round"/>
+        <ellipse cx="110" cy="250" rx="22" ry="12" fill="#A06B47"/>
+        <ellipse cx="190" cy="250" rx="22" ry="12" fill="#A06B47"/>
+      </svg>
+    </div>
+  </div>
+</section>
 
-    function openSignup(){ document.getElementById('signupModal').classList.remove('hidden'); document.getElementById('signupModal').classList.add('flex'); document.getElementById('pname').focus(); }
-    function closeSignup(){ document.getElementById('signupModal').classList.add('hidden'); document.getElementById('signupModal').classList.remove('flex'); }
+<!-- SECCIÓN CÓMO FUNCIONA -->
+<section class="px-6 py-16 bg-white rounded-t-3xl shadow-inner">
+  <h3 class="text-3xl font-bold text-center text-orange-600 mb-10">¿Cómo funciona?</h3>
 
-    function submitForm(e){
-      e.preventDefault();
-      // Demo: aquí integrarías un API o Google Forms
-      const name = document.getElementById('pname').value;
-      if(!name) return;
-      document.getElementById('formSign').reset();
-      document.getElementById('sentMsg').style.display = 'block';
-      setTimeout(()=>{ closeSignup(); document.getElementById('sentMsg').style.display = 'none'; },2000);
-    }
-  </script>
+  <div class="grid md:grid-cols-3 gap-10">
+
+    <!-- Paso 1 -->
+    <div class="bg-orange-50 p-6 rounded-3xl text-center shadow-md">
+      <div class="w-24 h-24 mx-auto mb-4">
+        <svg width="80" height="80" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="150" cy="160" rx="110" ry="125" fill="#C48A5A"/>
+          <ellipse cx="150" cy="185" rx="75" ry="85" fill="#D9A77A"/>
+          <ellipse cx="105" cy="65" rx="22" ry="18" fill="#A06B47"/>
+          <ellipse cx="195" cy="65" rx="22" ry="18" fill="#A06B47"/>
+          <ellipse cx="150" cy="145" rx="55" ry="42" fill="#B57F52"/>
+          <ellipse cx="150" cy="150" rx="12" ry="8" fill="#4A3327"/>
+          <circle cx="115" cy="130" r="10" fill="#2B2B2B"/>
+          <circle cx="185" cy="130" r="10" fill="#2B2B2B"/>
+          <path d="M135 165 Q150 180 165 165" stroke="#4A3327" stroke-width="6" stroke-linecap="round"/>
+          <ellipse cx="110" cy="250" rx="22" ry="12" fill="#A06B47"/>
+          <ellipse cx="190" cy="250" rx="22" ry="12" fill="#A06B47"/>
+        </svg>
+      </div>
+      <h4 class="font-bold text-xl mb-2">Aprende</h4>
+      <p class="text-slate-700">Lecciones simples, visuales y divertidas sobre ahorro, monedas, metas y finanzas básicas.</p>
+    </div>
+
+    <!-- Paso 2 -->
+    <div class="bg-orange-50 p-6 rounded-3xl text-center shadow-md">
+      <div class="w-24 h-24 mx-auto mb-4">
+        <svg width="80" height="80" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="150" cy="160" rx="110" ry="125" fill="#C48A5A"/>
+          <ellipse cx="150" cy="185" rx="75" ry="85" fill="#D9A77A"/>
+          <ellipse cx="105" cy="65" rx="22" ry="18" fill="#A06B47"/>
+          <ellipse cx="195" cy="65" rx="22" ry="18" fill="#A06B47"/>
+          <ellipse cx="150" cy="145" rx="55" ry="42" fill="#B57F52"/>
+          <ellipse cx="150" cy="150" rx="12" ry="8" fill="#4A3327"/>
+          <circle cx="115" cy="130" r="10" fill="#2B2B2B"/>
+          <circle cx="185" cy="130" r="10" fill="#2B2B2B"/>
+          <path d="M135 165 Q150 180 165 165" stroke="#4A3327" stroke-width="6" stroke-linecap="round"/>
+          <ellipse cx="110" cy="250" rx="22" ry="12" fill="#A06B47"/>
+          <ellipse cx="190" cy="250" rx="22" ry="12" fill="#A06B47"/>
+        </svg>
+      </div>
+      <h4 class="font-bold text-xl mb-2">Practica</h4>
+      <p class="text-slate-700">Misiones reales como ordenar una alcancía, planificar un gasto o completar retos de ahorro.</p>
+    </div>
+
+    <!-- Paso 3 -->
+    <div class="bg-orange-50 p-6 rounded-3xl text-center shadow-md">
+      <div class="w-24 h-24 mx-auto mb-4">
+        <svg width="80" height="80" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="150" cy="160" rx="110" ry="125" fill="#C48A5A"/>
+          <ellipse cx="150" cy="185" rx="75" ry="85" fill="#D9A77A"/>
+          <ellipse cx="105" cy="65" rx="22" ry="18" fill="#A06B47"/>
+          <ellipse cx="195" cy="65" rx="22" ry="18" fill="#A06B47"/>
+          <ellipse cx="150" cy="145" rx="55" ry="42" fill="#B57F52"/>
+          <ellipse cx="150" cy="150" rx="12" ry="8" fill="#4A3327"/>
+          <circle cx="115" cy="130" r="10" fill="#2B2B2B"/>
+          <circle cx="185" cy="130" r="10" fill="#2B2B2B"/>
+          <path d="M135 165 Q150 180 165 165" stroke="#4A3327" stroke-width="6" stroke-linecap="round"/>
+          <ellipse cx="110" cy="250" rx="22" ry="12" fill="#A06B47"/>
+          <ellipse cx="190" cy="250" rx="22" ry="12" fill="#A06B47"/>
+        </svg>
+      </div>
+      <h4 class="font-bold text-xl mb-2">Ahorra</h4>
+      <p class="text-slate-700">Un espacio para registrar su ahorro real o virtual con acompañamiento de los padres.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="mt-16 py-10 text-center text-slate-600">
+  <div class="w-20 h-20 mx-auto mb-4">
+    <svg width="100" height="100" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="150" cy="160" rx="110" ry="125" fill="#C48A5A"/>
+      <ellipse cx="150" cy="185" rx="75" ry="85" fill="#D9A77A"/>
+      <ellipse cx="105" cy="65" rx="22" ry="18" fill="#A06B47"/>
+      <ellipse cx="195" cy="65" rx="22" ry="18" fill="#A06B47"/>
+      <ellipse cx="150" cy="145" rx="55" ry="42" fill="#B57F52"/>
+      <ellipse cx="150" cy="150" rx="12" ry="8" fill="#4A3327"/>
+      <circle cx="115" cy="130" r="10" fill="#2B2B2B"/>
+      <circle cx="185" cy="130" r="10" fill="#2B2B2B"/>
+      <path d="M135 165 Q150 180 165 165" stroke="#4A3327" stroke-width="6" stroke-linecap="round"/>
+      <ellipse cx="110" cy="250" rx="22" ry="12" fill="#A06B47"/>
+      <ellipse cx="190" cy="250" rx="22" ry="12" fill="#A06B47"/>
+    </svg>
+  </div>
+
+  <p>Kuma Kids © 2025 • Educación financiera divertida</p>
+</footer>
 
 </body>
 </html>
