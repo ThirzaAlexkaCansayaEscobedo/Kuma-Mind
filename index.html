@@ -4,8 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kuma Kids</title>
+
+  <!-- Fuente -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -18,25 +23,12 @@
 <!-- NAVBAR -->
 <nav class="w-full flex items-center justify-between px-6 py-4 bg-white shadow-md fixed top-0 z-50">
   <div class="flex items-center gap-2">
-    <!-- Capibara mini -->
-    <div class="w-10 h-10">
-      <svg width="40" height="40" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="150" cy="160" rx="110" ry="125" fill="#C48A5A"/>
-        <ellipse cx="150" cy="185" rx="75" ry="85" fill="#D9A77A"/>
-        <ellipse cx="105" cy="65" rx="22" ry="18" fill="#A06B47"/>
-        <ellipse cx="195" cy="65" rx="22" ry="18" fill="#A06B47"/>
-        <ellipse cx="150" cy="145" rx="55" ry="42" fill="#B57F52"/>
-        <ellipse cx="150" cy="150" rx="12" ry="8" fill="#4A3327"/>
-        <circle cx="115" cy="130" r="10" fill="#2B2B2B"/>
-        <circle cx="185" cy="130" r="10" fill="#2B2B2B"/>
-        <path d="M135 165 Q150 180 165 165" stroke="#4A3327" stroke-width="6" stroke-linecap="round"/>
-        <ellipse cx="110" cy="250" rx="22" ry="12" fill="#A06B47"/>
-        <ellipse cx="190" cy="250" rx="22" ry="12" fill="#A06B47"/>
-      </svg>
-    </div>
+    <img src="capibara.png" class="w-10 h-10 rounded-full" alt="Kuma Kids capibara">
     <h1 class="font-semibold text-xl text-orange-600">Kuma Kids</h1>
   </div>
-  <button class="bg-orange-500 text-white px-4 py-2 rounded-xl text-sm">Unirse</button>
+  <button class="bg-orange-500 text-white px-4 py-2 rounded-xl text-sm hover:bg-orange-600 transition">
+    Unirse
+  </button>
 </nav>
 
 <!-- HERO -->
@@ -44,124 +36,72 @@
   <div class="lg:w-1/2">
     <h2 class="text-4xl font-bold text-orange-600 mb-4">Aprende a ahorrar jugando</h2>
     <p class="text-slate-700 text-lg mb-6">
-      La primera app financiera diseñada para niños del Perú, guiada por una capibara que enseña ahorro,
-      metas y responsabilidad.
+      La primera aplicación financiera para niños del Perú, guiada por una capibara
+      que enseña ahorro, metas y responsabilidad desde pequeños.
     </p>
-    <button class="bg-orange-600 text-white px-6 py-3 rounded-2xl text-lg font-semibold">
-      Comenzar
+    <button class="bg-orange-600 text-white px-6 py-3 rounded-2xl text-lg font-semibold hover:bg-orange-700 transition">
+      Comenzar ahora
     </button>
   </div>
 
   <div class="lg:w-1/2 flex justify-center">
-    <!-- Capibara grande -->
-    <div class="w-72 h-72">
-      <svg width="260" height="260" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="150" cy="160" rx="110" ry="125" fill="#C48A5A"/>
-        <ellipse cx="150" cy="185" rx="75" ry="85" fill="#D9A77A"/>
-        <ellipse cx="105" cy="65" rx="22" ry="18" fill="#A06B47"/>
-        <ellipse cx="195" cy="65" rx="22" ry="18" fill="#A06B47"/>
-        <ellipse cx="150" cy="145" rx="55" ry="42" fill="#B57F52"/>
-        <ellipse cx="150" cy="150" rx="12" ry="8" fill="#4A3327"/>
-        <circle cx="115" cy="130" r="10" fill="#2B2B2B"/>
-        <circle cx="185" cy="130" r="10" fill="#2B2B2B"/>
-        <path d="M135 165 Q150 180 165 165" stroke="#4A3327" stroke-width="6" stroke-linecap="round"/>
-        <ellipse cx="110" cy="250" rx="22" ry="12" fill="#A06B47"/>
-        <ellipse cx="190" cy="250" rx="22" ry="12" fill="#A06B47"/>
-      </svg>
-    </div>
+    <img src="capibara.png" class="w-64 drop-shadow-xl" alt="Capibara mascota">
   </div>
 </section>
 
-<!-- SECCIÓN CÓMO FUNCIONA -->
+<!-- CÓMO FUNCIONA -->
 <section class="px-6 py-16 bg-white rounded-t-3xl shadow-inner">
   <h3 class="text-3xl font-bold text-center text-orange-600 mb-10">¿Cómo funciona?</h3>
 
   <div class="grid md:grid-cols-3 gap-10">
 
-    <!-- Paso 1 -->
-    <div class="bg-orange-50 p-6 rounded-3xl text-center shadow-md">
-      <div class="w-24 h-24 mx-auto mb-4">
-        <svg width="80" height="80" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <ellipse cx="150" cy="160" rx="110" ry="125" fill="#C48A5A"/>
-          <ellipse cx="150" cy="185" rx="75" ry="85" fill="#D9A77A"/>
-          <ellipse cx="105" cy="65" rx="22" ry="18" fill="#A06B47"/>
-          <ellipse cx="195" cy="65" rx="22" ry="18" fill="#A06B47"/>
-          <ellipse cx="150" cy="145" rx="55" ry="42" fill="#B57F52"/>
-          <ellipse cx="150" cy="150" rx="12" ry="8" fill="#4A3327"/>
-          <circle cx="115" cy="130" r="10" fill="#2B2B2B"/>
-          <circle cx="185" cy="130" r="10" fill="#2B2B2B"/>
-          <path d="M135 165 Q150 180 165 165" stroke="#4A3327" stroke-width="6" stroke-linecap="round"/>
-          <ellipse cx="110" cy="250" rx="22" ry="12" fill="#A06B47"/>
-          <ellipse cx="190" cy="250" rx="22" ry="12" fill="#A06B47"/>
-        </svg>
-      </div>
+    <div class="bg-orange-50 p-6 rounded-3xl text-center shadow-md hover:scale-105 transition">
+      <img src="capibara.png" class="w-20 mx-auto mb-3 opacity-90">
       <h4 class="font-bold text-xl mb-2">Aprende</h4>
-      <p class="text-slate-700">Lecciones simples, visuales y divertidas sobre ahorro, monedas, metas y finanzas básicas.</p>
+      <p class="text-slate-700">Lecciones simples y divertidas para entender el valor del dinero.</p>
     </div>
 
-    <!-- Paso 2 -->
-    <div class="bg-orange-50 p-6 rounded-3xl text-center shadow-md">
-      <div class="w-24 h-24 mx-auto mb-4">
-        <svg width="80" height="80" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <ellipse cx="150" cy="160" rx="110" ry="125" fill="#C48A5A"/>
-          <ellipse cx="150" cy="185" rx="75" ry="85" fill="#D9A77A"/>
-          <ellipse cx="105" cy="65" rx="22" ry="18" fill="#A06B47"/>
-          <ellipse cx="195" cy="65" rx="22" ry="18" fill="#A06B47"/>
-          <ellipse cx="150" cy="145" rx="55" ry="42" fill="#B57F52"/>
-          <ellipse cx="150" cy="150" rx="12" ry="8" fill="#4A3327"/>
-          <circle cx="115" cy="130" r="10" fill="#2B2B2B"/>
-          <circle cx="185" cy="130" r="10" fill="#2B2B2B"/>
-          <path d="M135 165 Q150 180 165 165" stroke="#4A3327" stroke-width="6" stroke-linecap="round"/>
-          <ellipse cx="110" cy="250" rx="22" ry="12" fill="#A06B47"/>
-          <ellipse cx="190" cy="250" rx="22" ry="12" fill="#A06B47"/>
-        </svg>
-      </div>
+    <div class="bg-orange-50 p-6 rounded-3xl text-center shadow-md hover:scale-105 transition">
+      <img src="capibara.png" class="w-20 mx-auto mb-3 opacity-90">
       <h4 class="font-bold text-xl mb-2">Practica</h4>
-      <p class="text-slate-700">Misiones reales como ordenar una alcancía, planificar un gasto o completar retos de ahorro.</p>
+      <p class="text-slate-700">Misiones y retos para reforzar hábitos financieros saludables.</p>
     </div>
 
-    <!-- Paso 3 -->
-    <div class="bg-orange-50 p-6 rounded-3xl text-center shadow-md">
-      <div class="w-24 h-24 mx-auto mb-4">
-        <svg width="80" height="80" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <ellipse cx="150" cy="160" rx="110" ry="125" fill="#C48A5A"/>
-          <ellipse cx="150" cy="185" rx="75" ry="85" fill="#D9A77A"/>
-          <ellipse cx="105" cy="65" rx="22" ry="18" fill="#A06B47"/>
-          <ellipse cx="195" cy="65" rx="22" ry="18" fill="#A06B47"/>
-          <ellipse cx="150" cy="145" rx="55" ry="42" fill="#B57F52"/>
-          <ellipse cx="150" cy="150" rx="12" ry="8" fill="#4A3327"/>
-          <circle cx="115" cy="130" r="10" fill="#2B2B2B"/>
-          <circle cx="185" cy="130" r="10" fill="#2B2B2B"/>
-          <path d="M135 165 Q150 180 165 165" stroke="#4A3327" stroke-width="6" stroke-linecap="round"/>
-          <ellipse cx="110" cy="250" rx="22" ry="12" fill="#A06B47"/>
-          <ellipse cx="190" cy="250" rx="22" ry="12" fill="#A06B47"/>
-        </svg>
-      </div>
+    <div class="bg-orange-50 p-6 rounded-3xl text-center shadow-md hover:scale-105 transition">
+      <img src="capibara.png" class="w-20 mx-auto mb-3 opacity-90">
       <h4 class="font-bold text-xl mb-2">Ahorra</h4>
-      <p class="text-slate-700">Un espacio para registrar su ahorro real o virtual con acompañamiento de los padres.</p>
+      <p class="text-slate-700">Un espacio para registrar ahorros junto a sus padres.</p>
     </div>
 
   </div>
 </section>
 
+<!-- SECCIÓN PRODUCTO -->
+<section class="px-6 py-20">
+  <h3 class="text-3xl font-bold text-center text-orange-600 mb-10">Producto: Kuma Kids App</h3>
+
+  <div class="max-w-4xl mx-auto bg-white shadow-xl p-8 rounded-3xl">
+    <h4 class="font-semibold text-2xl mb-4 text-orange-700">¿Qué es?</h4>
+    <p class="text-slate-700 mb-6">
+      Es una app educativa y financiera diseñada para que los niños peruanos aprendan a ahorrar,
+      entender el dinero y desarrollar hábitos saludables desde edades tempranas.
+    </p>
+
+    <h4 class="font-semibold text-2xl mb-4 text-orange-700">Características principales</h4>
+
+    <ul class="space-y-4 text-slate-700">
+      <li>🟠 <strong>Misiones financieras</strong> (tareas, aprendizajes y hábitos)</li>
+      <li>🟠 <strong>Lecciones interactivas</strong> estilo minifinanzas pero más divertida</li>
+      <li>🟠 <strong>Modo padres</strong> para supervisión, ahorros y metas</li>
+      <li>🟠 <strong>Progreso visual</strong>: stickers, logros, niveles</li>
+      <li>🟠 <strong>Método “aprender–practicar–ahorrar”</strong></li>
+    </ul>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer class="mt-16 py-10 text-center text-slate-600">
-  <div class="w-20 h-20 mx-auto mb-4">
-    <svg width="100" height="100" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="150" cy="160" rx="110" ry="125" fill="#C48A5A"/>
-      <ellipse cx="150" cy="185" rx="75" ry="85" fill="#D9A77A"/>
-      <ellipse cx="105" cy="65" rx="22" ry="18" fill="#A06B47"/>
-      <ellipse cx="195" cy="65" rx="22" ry="18" fill="#A06B47"/>
-      <ellipse cx="150" cy="145" rx="55" ry="42" fill="#B57F52"/>
-      <ellipse cx="150" cy="150" rx="12" ry="8" fill="#4A3327"/>
-      <circle cx="115" cy="130" r="10" fill="#2B2B2B"/>
-      <circle cx="185" cy="130" r="10" fill="#2B2B2B"/>
-      <path d="M135 165 Q150 180 165 165" stroke="#4A3327" stroke-width="6" stroke-linecap="round"/>
-      <ellipse cx="110" cy="250" rx="22" ry="12" fill="#A06B47"/>
-      <ellipse cx="190" cy="250" rx="22" ry="12" fill="#A06B47"/>
-    </svg>
-  </div>
-
+  <img src="capibara.png" class="w-20 mx-auto mb-4">
   <p>Kuma Kids © 2025 • Educación financiera divertida</p>
 </footer>
 
