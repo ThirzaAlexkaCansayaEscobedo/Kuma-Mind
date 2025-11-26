@@ -1,136 +1,110 @@
-<!DOCTYPE html><html lang="es" class="bg-gray-50">
+<!doctype html>
+<html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kuma Mind – App</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kuma Kids — Educación financiera para niños</title>
+
+  <!-- Tipografía y Tailwind CDN (rápido para prototipo) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <meta name="description" content="Kuma Kids - App educativa que enseña a niños (6-12 años) hábitos financieros con control parental seguro." />
   <style>
-    body { font-family: 'Poppins', sans-serif; }
-    .app-container { max-width: 480px; margin: auto; border-radius: 28px; box-shadow: 0 0 40px rgba(0,0,0,0.1); overflow: hidden; }
+    :root{
+      --primary:#ff6b00; /* naranja principal */
+      --primary-600:#ff8f42;
+      --muted:#f7f7f7;
+    }
+    html,body{font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;}
+    /* pequeño límite de ancho para estilo 'app' en pantallas grandes */
+    .app-frame { max-width: 980px; margin: 0 auto; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(15,23,42,0.08); background: white; }
+    /* accesibilidad focus */
+    :focus { outline: 3px solid rgba(255,107,0,0.18); outline-offset: 2px; }
   </style>
 </head>
-<body class="bg-gray-900 flex justify-center py-6">  <div class="app-container bg-white"><!-- HEADER APP STYLE -->
-<header class="bg-orange-500 text-white p-5 flex items-center justify-between">
-  <h1 class="text-xl font-semibold">Kuma Mind</h1>
-  <button id="openMenu" class="text-white text-2xl">☰</button>
-</header>
+<body class="bg-[var(--muted)] text-slate-800">
 
-<!-- MENU LATERAL -->
-<aside id="menu" class="fixed top-0 left-0 w-64 h-full bg-white shadow-xl transform -translate-x-full transition-all p-6 z-50">
-  <h2 class="text-2xl font-semibold mb-6 text-orange-500">Menú</h2>
-  <nav class="space-y-4">
-    <a href="#como" class="block text-gray-800 text-lg">Cómo funciona</a>
-    <a href="#producto" class="block text-gray-800 text-lg">Producto</a>
-    <a href="#impacto" class="block text-gray-800 text-lg">Impacto</a>
-    <a href="#faq" class="block text-gray-800 text-lg">FAQ</a>
-  </nav>
-  <button id="closeMenu" class="mt-8 bg-orange-500 w-full py-2 rounded-lg text-white font-semibold">Cerrar</button>
-</aside>
+  <main class="p-6">
+    <div class="app-frame">
+      <!-- HEADER -->
+      <header class="flex items-center justify-between px-6 py-4 border-b">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-full bg-[var(--primary)] flex items-center justify-center text-white font-bold">KK</div>
+          <div>
+            <h1 class="text-xl font-bold text-[var(--primary)]">Kuma Kids</h1>
+            <p class="text-xs text-slate-500">Educar hoy para proteger mañana</p>
+          </div>
+        </div>
 
-<!-- HERO TIPO APP -->
-<section class="p-6 text-center">
-  <h2 class="text-3xl font-bold text-orange-600">Inteligencia financiera para durar</h2>
-  <p class="text-gray-600 mt-3">Construye estabilidad con educación y herramientas guiadas.</p>
-  <button id="openModal" class="mt-4 bg-orange-500 text-white py-2 px-6 rounded-xl font-semibold shadow">Unirse</button>
-</section>
+        <nav class="hidden md:flex items-center gap-4 text-sm">
+          <a href="#como" class="hover:text-[var(--primary)]">Cómo funciona</a>
+          <a href="#producto" class="hover:text-[var(--primary)]">Producto</a>
+          <a href="#impacto" class="hover:text-[var(--primary)]">Impacto</a>
+          <a href="#faq" class="hover:text-[var(--primary)]">FAQ</a>
+          <button onclick="openSignup()" class="ml-2 px-4 py-2 bg-[var(--primary)] text-white rounded-md shadow hover:bg-[var(--primary-600)]">Únete</button>
+        </nav>
 
-<!-- ESTILO APP CARDS -->
-<section id="como" class="p-6 space-y-4">
-  <h3 class="text-xl font-bold text-gray-800">Cómo funciona</h3>
+        <!-- Mobile menu button -->
+        <button id="btnMobile" class="md:hidden p-2 rounded-md text-slate-600" aria-label="Abrir menú" onclick="toggleMobile()">
+          ☰
+        </button>
+      </header>
 
-  <div class="bg-orange-50 p-4 rounded-xl shadow-sm">
-    <h4 class="font-semibold text-orange-600">1. Diagnóstico</h4>
-    <p class="text-gray-700 text-sm">Evalúa tu perfil financiero en minutos.</p>
-  </div>
+      <!-- Mobile nav -->
+      <div id="mobileNav" class="md:hidden hidden border-b px-4 py-3 space-y-2">
+        <a href="#como" class="block">Cómo funciona</a>
+        <a href="#producto" class="block">Producto</a>
+        <a href="#impacto" class="block">Impacto</a>
+        <a href="#faq" class="block">FAQ</a>
+        <button onclick="openSignup()" class="w-full mt-2 px-4 py-2 bg-[var(--primary)] text-white rounded-md">Únete</button>
+      </div>
 
-  <div class="bg-orange-50 p-4 rounded-xl shadow-sm">
-    <h4 class="font-semibold text-orange-600">2. Plan Safe</h4>
-    <p class="text-gray-700 text-sm">Crea y protege tu fondo de emergencia.</p>
-  </div>
+      <!-- HERO -->
+      <section class="grid md:grid-cols-2 gap-6 px-6 py-10 items-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-[var(--primary)] leading-tight">Aprender a ahorrar desde pequeños</h2>
+          <p class="mt-4 text-slate-600">Kuma Kids enseña a niños de 6 a 12 años hábitos financieros mediante lecciones breves, minijuegos y un guardadito real controlado por los padres. Seguro, pedagógico y divertido.</p>
 
-  <div class="bg-orange-50 p-4 rounded-xl shadow-sm">
-    <h4 class="font-semibold text-orange-600">3. Aprendizaje + Acción</h4>
-    <p class="text-gray-700 text-sm">Lecciones, retos y control emocional del gasto.</p>
-  </div>
-</section>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <button onclick="openSignup()" class="px-5 py-3 bg-[var(--primary)] text-white rounded-md shadow hover:bg-[var(--primary-600)] font-semibold">Quiero unirme</button>
+            <a href="#producto" class="px-5 py-3 border border-slate-200 rounded-md text-slate-700">Ver el producto</a>
+          </div>
 
-<!-- PRODUCTO ESTILO APP -->
-<section id="producto" class="p-6 bg-gray-100 space-y-4">
-  <h3 class="text-xl font-bold text-gray-800">Kuma Safe Plan</h3>
+          <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="bg-white p-3 rounded-lg shadow-sm text-center">
+              <strong class="block">Ahorro real</strong>
+              <span class="text-xs text-slate-500">Control parental</span>
+            </div>
+            <div class="bg-white p-3 rounded-lg shadow-sm text-center">
+              <strong class="block">Micro-lecciones</strong>
+              <span class="text-xs text-slate-500">2 min</span>
+            </div>
+            <div class="bg-white p-3 rounded-lg shadow-sm text-center">
+              <strong class="block">Misiones</strong>
+              <span class="text-xs text-slate-500">Vida diaria</span>
+            </div>
+            <div class="bg-white p-3 rounded-lg shadow-sm text-center">
+              <strong class="block">Simulador</strong>
+              <span class="text-xs text-slate-500">Impacto real</span>
+            </div>
+          </div>
+        </div>
 
-  <div class="bg-white p-4 rounded-xl shadow-sm">
-    <h4 class="font-semibold text-orange-600">Evaluación personalizada</h4>
-    <p class="text-sm text-gray-700">Recomendaciones según riesgo y hábitos.</p>
-  </div>
+        <!-- Mockup / Card -->
+        <aside class="flex justify-center">
+          <div class="w-72 sm:w-80 bg-gradient-to-br from-white to-[var(--muted)] rounded-xl p-4 shadow-lg">
+            <h3 class="font-semibold text-lg">Tablero de tu pequeño</h3>
+            <p class="text-xs text-slate-500 mt-1">Progreso del guardadito</p>
 
-  <div class="bg-white p-4 rounded-xl shadow-sm">
-    <h4 class="font-semibold text-orange-600">Ahorro automático</h4>
-    <p class="text-sm text-gray-700">Redondeos inteligentes y metas guiadas.</p>
-  </div>
+            <div class="mt-4">
+              <div class="w-full bg-slate-200 rounded-full h-3 overflow-hidden">
+                <div id="progressBar" class="bg-[var(--primary)] h-3 rounded-full" style="width:38%"></div>
+              </div>
+              <div class="mt-2 flex justify-between text-xs text-slate-500">
+                <span id="progressText">38% de la meta</span>
+                <span id="progressAmt">S/ 190 / S/500</span>
+              </div>
+            </div>
 
-  <div class="bg-white p-4 rounded-xl shadow-sm">
-    <h4 class="font-semibold text-orange-600">Reglas de protección</h4>
-    <p class="text-sm text-gray-700">Evita retiros impulsivos con límites saludables.</p>
-  </div>
-</section>
-
-<!-- IMPACTO -->
-<section id="impacto" class="p-6 space-y-4">
-  <h3 class="text-xl font-bold text-gray-800">Impacto</h3>
-  <div class="grid grid-cols-2 gap-4">
-    <div class="bg-orange-50 p-4 rounded-xl text-center">
-      <p class="text-3xl font-bold text-orange-600">85%</p>
-      <p class="text-sm">Finalizan lecciones</p>
-    </div>
-    <div class="bg-orange-50 p-4 rounded-xl text-center">
-      <p class="text-3xl font-bold text-orange-600">70%</p>
-      <p class="text-sm">Fondo activo 6 meses</p>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section id="faq" class="p-6 bg-gray-100 space-y-4">
-  <h3 class="text-xl font-bold">Preguntas frecuentes</h3>
-  <details class="bg-white p-4 rounded-xl shadow-sm">
-    <summary class="font-semibold text-orange-600 cursor-pointer">¿Kuma Mind es un banco?</summary>
-    <p class="text-sm text-gray-700 mt-2">No, es una plataforma educativa y de planificación.</p>
-  </details>
-
-  <details class="bg-white p-4 rounded-xl shadow-sm">
-    <summary class="font-semibold text-orange-600 cursor-pointer">¿Cómo funciona el fondo?</summary>
-    <p class="text-sm text-gray-700 mt-2">Ofrece estrategias guiadas basadas en psicología financiera.</p>
-  </details>
-</section>
-
-<!-- REGISTRO -->
-<section class="p-6 text-center">
-  <h3 class="text-xl font-bold text-gray-700">Únete al piloto</h3>
-  <button id="openModal2" class="mt-3 bg-orange-500 text-white py-2 px-6 rounded-xl font-semibold shadow">Registrarme</button>
-</section>
-
-<!-- MODAL -->
-<div id="modal" class="fixed inset-0 bg-black bg-opacity-40 hidden items-center justify-center p-6 z-50">
-  <div class="bg-white p-6 rounded-2xl w-full max-w-sm space-y-4">
-    <h2 class="text-xl font-semibold text-orange-600">Regístrate</h2>
-    <input type="text" placeholder="Nombre" class="w-full p-3 border rounded-xl" />
-    <input type="email" placeholder="Correo" class="w-full p-3 border rounded-xl" />
-    <button class="w-full bg-orange-500 text-white py-2 rounded-xl font-semibold">Enviar</button>
-    <button id="closeModal" class="w-full border py-2 rounded-xl font-semibold mt-2">Cancelar</button>
-  </div>
-</div>
-
-<footer class="text-center text-gray-500 py-4 text-sm">© 2025 Kuma Mind</footer>
-
-  </div><script>
-  const menu = document.getElementById('menu');
-  document.getElementById('openMenu').onclick = () => menu.classList.remove('-translate-x-full');
-  document.getElementById('closeMenu').onclick = () => menu.classList.add('-translate-x-full');
-
-  const modal = document.getElementById('modal');
-  document.getElementById('openModal').onclick = ()=> modal.classList.remove('hidden');
-  document.getElementById('openModal2').onclick = ()=> modal.classList.remove('hidden');
-  document.getElementById('closeModal').onclick = ()=> modal.classList.add('hidden');
-</script></body>
-</html>
+            <div class
