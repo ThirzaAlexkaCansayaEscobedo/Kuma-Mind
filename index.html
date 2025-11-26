@@ -1,108 +1,298 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kuma Kids</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kuma Kids – Finanzas para Niños</title>
 
-  <!-- Fuente -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <style>
+<style>
     body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #FFF9F3;
+        margin: 0;
+        font-family: 'Nunito', sans-serif;
+        background: #ffffff;
+        color: #333;
     }
-  </style>
+
+    /* NAVBAR */
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 30px;
+        background: white;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 800;
+        font-size: 22px;
+        color: #e67e22;
+    }
+
+    .logo img {
+        width: 40px;
+        height: 40px;
+    }
+
+    nav a {
+        text-decoration: none;
+        margin-left: 20px;
+        font-weight: 600;
+        color: #333;
+    }
+
+    nav a:hover {
+        color: #e67e22;
+    }
+
+    /* HERO */
+    .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 60px 20px;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+        font-weight: 900;
+        color: #e67e22;
+        margin-bottom: 10px;
+    }
+
+    .hero p {
+        max-width: 600px;
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+
+    .hero img {
+        width: 260px;
+        height: auto;
+        display: block;
+        margin-top: 20px;
+    }
+
+    /* SECCIÓN CÓMO FUNCIONA */
+    .section-title {
+        text-align: center;
+        font-size: 32px;
+        font-weight: 800;
+        margin-top: 60px;
+        margin-bottom: 30px;
+        color: #e67e22;
+    }
+
+    .steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+        gap: 25px;
+        padding: 0 30px;
+    }
+
+    .step-box {
+        background: #fff7ec;
+        border-radius: 16px;
+        padding: 25px;
+        text-align: center;
+        border: 2px solid #ffe4c2;
+    }
+
+    .step-box img {
+        width: 70px;
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    /* PRODUCTO */
+    .product {
+        padding: 40px 30px;
+        background: #fff0dd;
+        border-top: 4px solid #e67e22;
+        margin-top: 50px;
+    }
+
+    .product-item {
+        background: white;
+        border-radius: 14px;
+        padding: 20px;
+        border: 2px solid #ffd7b0;
+        margin-bottom: 20px;
+    }
+
+    /* MÉTRICAS */
+    .metrics {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+        gap: 25px;
+        padding: 40px 30px;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .metric-box {
+        background: #fff7ec;
+        border: 2px solid #ffe4c2;
+        padding: 20px;
+        border-radius: 16px;
+    }
+
+    .metric-box h2 {
+        font-size: 36px;
+        color: #e67e22;
+        margin-bottom: 5px;
+    }
+
+    /* CTA FINAL */
+    .cta {
+        background: #e67e22;
+        padding: 50px 30px;
+        text-align: center;
+        color: white;
+        margin-top: 40px;
+    }
+
+    .cta input {
+        padding: 12px;
+        width: 260px;
+        border-radius: 10px;
+        border: none;
+        margin: 5px;
+        font-size: 16px;
+    }
+
+    button {
+        padding: 12px 22px;
+        background: white;
+        border: none;
+        color: #e67e22;
+        font-weight: 800;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 17px;
+    }
+
+    button:hover {
+        background: #ffe1c6;
+    }
+
+    /* FOOTER */
+    footer {
+        padding: 25px;
+        text-align: center;
+        font-size: 14px;
+        color: #666;
+        background: #fff7ec;
+    }
+</style>
 </head>
-<body class="text-slate-800">
+
+<body>
 
 <!-- NAVBAR -->
-<nav class="w-full flex items-center justify-between px-6 py-4 bg-white shadow-md fixed top-0 z-50">
-  <div class="flex items-center gap-2">
-    <img src="capibara.png" class="w-10 h-10 rounded-full" alt="Kuma Kids capibara">
-    <h1 class="font-semibold text-xl text-orange-600">Kuma Kids</h1>
-  </div>
-  <button class="bg-orange-500 text-white px-4 py-2 rounded-xl text-sm hover:bg-orange-600 transition">
-    Unirse
-  </button>
+<nav>
+    <div class="logo">
+        <img src="assets/capibara.png" alt="">
+        Kuma Kids
+    </div>
+
+    <div>
+        <a href="#funciona">Cómo funciona</a>
+        <a href="#producto">Producto</a>
+        <a href="#impacto">Impacto</a>
+        <a href="#unete">Únete</a>
+    </div>
 </nav>
 
 <!-- HERO -->
-<section class="pt-28 px-6 pb-12 flex flex-col lg:flex-row items-center gap-10">
-  <div class="lg:w-1/2">
-    <h2 class="text-4xl font-bold text-orange-600 mb-4">Aprende a ahorrar jugando</h2>
-    <p class="text-slate-700 text-lg mb-6">
-      La primera aplicación financiera para niños del Perú, guiada por una capibara
-      que enseña ahorro, metas y responsabilidad desde pequeños.
-    </p>
-    <button class="bg-orange-600 text-white px-6 py-3 rounded-2xl text-lg font-semibold hover:bg-orange-700 transition">
-      Comenzar ahora
-    </button>
-  </div>
+<section class="hero">
+    <h1>Finanzas para niños, fáciles y divertidas</h1>
+    <p>Kuma Kids enseña a los niños a ahorrar, planificar y tomar buenas decisiones desde pequeños, usando juegos, retos y una mascota adorable.</p>
 
-  <div class="lg:w-1/2 flex justify-center">
-    <img src="capibara.png" class="w-64 drop-shadow-xl" alt="Capibara mascota">
-  </div>
+    <img src="assets/capibara.png" alt="Kuma Capibara">
 </section>
 
 <!-- CÓMO FUNCIONA -->
-<section class="px-6 py-16 bg-white rounded-t-3xl shadow-inner">
-  <h3 class="text-3xl font-bold text-center text-orange-600 mb-10">¿Cómo funciona?</h3>
+<h2 class="section-title" id="funciona">¿Cómo funciona Kuma Kids?</h2>
 
-  <div class="grid md:grid-cols-3 gap-10">
-
-    <div class="bg-orange-50 p-6 rounded-3xl text-center shadow-md hover:scale-105 transition">
-      <img src="capibara.png" class="w-20 mx-auto mb-3 opacity-90">
-      <h4 class="font-bold text-xl mb-2">Aprende</h4>
-      <p class="text-slate-700">Lecciones simples y divertidas para entender el valor del dinero.</p>
+<div class="steps">
+    <div class="step-box">
+        <img src="assets/capibara.png">
+        <h3>1. Diagnóstico</h3>
+        <p>Un test inicial divertido para conocer el estilo financiero del niño.</p>
     </div>
 
-    <div class="bg-orange-50 p-6 rounded-3xl text-center shadow-md hover:scale-105 transition">
-      <img src="capibara.png" class="w-20 mx-auto mb-3 opacity-90">
-      <h4 class="font-bold text-xl mb-2">Practica</h4>
-      <p class="text-slate-700">Misiones y retos para reforzar hábitos financieros saludables.</p>
+    <div class="step-box">
+        <img src="assets/capibara.png">
+        <h3>2. Metas y ahorros</h3>
+        <p>El niño elige metas visuales usando dinero real depositado por los padres.</p>
     </div>
 
-    <div class="bg-orange-50 p-6 rounded-3xl text-center shadow-md hover:scale-105 transition">
-      <img src="capibara.png" class="w-20 mx-auto mb-3 opacity-90">
-      <h4 class="font-bold text-xl mb-2">Ahorra</h4>
-      <p class="text-slate-700">Un espacio para registrar ahorros junto a sus padres.</p>
+    <div class="step-box">
+        <img src="assets/capibara.png">
+        <h3>3. Misiones educativas</h3>
+        <p>Minijuegos y retos para aprender ahorro, gasto responsable y metas.</p>
+    </div>
+</div>
+
+<!-- PRODUCTO -->
+<section class="product" id="producto">
+    <h2 class="section-title">Producto: Cuenta Kids + App</h2>
+
+    <div class="product-item">
+        <h3>Cuenta Kids (padre + niño)</h3>
+        <p>Una cuenta digital ligera, vinculada al padre, segura y sin riesgo para menores.</p>
     </div>
 
-  </div>
+    <div class="product-item">
+        <h3>App educativa con misiones</h3>
+        <p>Niños aprenden finanzas jugando, desbloquean logros y ganan “Kuma Coins”.</p>
+    </div>
+
+    <div class="product-item">
+        <h3>Panel para padres</h3>
+        <p>Los padres supervisan metas, aportan dinero y ven los avances.</p>
+    </div>
 </section>
 
-<!-- SECCIÓN PRODUCTO -->
-<section class="px-6 py-20">
-  <h3 class="text-3xl font-bold text-center text-orange-600 mb-10">Producto: Kuma Kids App</h3>
+<!-- MÉTRICAS -->
+<h2 class="section-title" id="impacto">Impacto y Métricas</h2>
 
-  <div class="max-w-4xl mx-auto bg-white shadow-xl p-8 rounded-3xl">
-    <h4 class="font-semibold text-2xl mb-4 text-orange-700">¿Qué es?</h4>
-    <p class="text-slate-700 mb-6">
-      Es una app educativa y financiera diseñada para que los niños peruanos aprendan a ahorrar,
-      entender el dinero y desarrollar hábitos saludables desde edades tempranas.
-    </p>
+<div class="metrics">
+    <div class="metric-box">
+        <h2>90%</h2>
+        <p>Niños cumplen 1 meta de ahorro al mes.</p>
+    </div>
+    <div class="metric-box">
+        <h2>75%</h2>
+        <p>Aprenden a diferenciar deseo vs necesidad.</p>
+    </div>
+    <div class="metric-box">
+        <h2>82%</h2>
+        <p>Interacción semanal con misiones.</p>
+    </div>
+</div>
 
-    <h4 class="font-semibold text-2xl mb-4 text-orange-700">Características principales</h4>
+<!-- CTA FINAL -->
+<section class="cta" id="unete">
+    <h2>¿Listo para unirte al piloto?</h2>
+    <p>Regístrate para obtener acceso anticipado.</p>
 
-    <ul class="space-y-4 text-slate-700">
-      <li>🟠 <strong>Misiones financieras</strong> (tareas, aprendizajes y hábitos)</li>
-      <li>🟠 <strong>Lecciones interactivas</strong> estilo minifinanzas pero más divertida</li>
-      <li>🟠 <strong>Modo padres</strong> para supervisión, ahorros y metas</li>
-      <li>🟠 <strong>Progreso visual</strong>: stickers, logros, niveles</li>
-      <li>🟠 <strong>Método “aprender–practicar–ahorrar”</strong></li>
-    </ul>
-  </div>
+    <input type="text" placeholder="Nombre">
+    <input type="email" placeholder="Correo">
+    <button>Unirme</button>
 </section>
 
 <!-- FOOTER -->
-<footer class="mt-16 py-10 text-center text-slate-600">
-  <img src="capibara.png" class="w-20 mx-auto mb-4">
-  <p>Kuma Kids © 2025 • Educación financiera divertida</p>
+<footer>
+    © 2025 Kuma Kids – Educación financiera para el futuro
 </footer>
 
 </body>
